@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/clindforsSejsing/Login-signup-in-frontent/issues"
   },
-  "homepage": "https://github.com/clindforsSejsing/Login-signup-in-frontent#readme"
+  "homepage": "https://github.com/clindforsSejsing/Login-signup-in-frontent#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
 }
