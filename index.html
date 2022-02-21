@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <title>Signup and Login with Bootsrap 5</title>
-  </head>
-  <body>
-    <h2>Easy login with Boostrap 5</h2>
-    <form>
-      <div class="mb-3">
-        <label for="Email1" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="Email1"
-          aria-describedby="emailHelp"
-        />
-        <div id="emailHelp" class="form-text">
-          Your email is safe with us- We do not share it.
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./src/main.css" />
+  <title>Signup and Login with Bootsrap 5</title>
+</head>
+
+<body>
+  <div class="card" style="width:30em" ;>
+    <h1 class="display-6">Kino Login</h1>
+    <form id="login">
+      <div class="container-sm">
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+          <label for="email">Email</label>
+        </div>
+        <div class="form-floating mt-3 mb-3">
+          <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          <label for="pwd">Password</label>
+        </div>
+        <div class="row">
+          <div class="col mb-3 mt-3">
+            <input type="checkbox" class="form-check-input" id="check1" value="false" />
+            <label class="form-check-label" for="check1">Remember me</label>
+          </div>
+          <div class="col mb-3 mt-3">
+            <a href="#" class="alert-link">Forgot password?</a>
+          </div>
         </div>
       </div>
-      <div class="mb-2">
-        <label for="Password1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="Password1" />
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary shadow-sm btn-block">Sign in</button>
+        <div class="d-grid mt-3 mb-3">
+          <button type="signin" class="btn btn-outline-primary shadow-sm">
+            Not a member? Register
+          </button></label>
+        </div>
       </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1"
-          >Yes, I want to subscribe newsletter!</label
-        >
-      </div>
-      <button type="submit" class="btn btn-danger shadow-sm">Submit</button>
-    </form>
-  </body>
+  </div>
+  </form>
+  </div>
+  </div>
+</body>
+
 </html>

@@ -1,0 +1,19 @@
+#login {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+h2 {
+  font-style: oblique;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2rem;
+  color: white;
+}
+/* body {
+  background-image: url("blue.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+/* kolla upp om man kan snygga till bakgrunden med nån form av blå färg (typ 
+som i moveCite) 
+Skriva js till filen. 
+*/

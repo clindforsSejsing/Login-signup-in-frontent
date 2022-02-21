@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/clindforsSejsing/Login-signup-in-frontent#readme",
   "dependencies": {
-    "bootstrap": "^5.1.3"
+    "bootstrap": "^5.1.3",
+    "sass": "^1.49.8"
   }
 }
