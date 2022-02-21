@@ -1,12 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap");
+
 #login {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 1em;
+  margin-right: 1em;
 }
-h2 {
+h1 {
   font-style: oblique;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 2rem;
-  color: white;
+  font-family: "Akaya Telivigala", cursive;
+  font-size: 2em;
 }
 /* body {
   background-image: url("blue.png");
