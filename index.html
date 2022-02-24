@@ -16,9 +16,9 @@
 </head>
 
 <body>
-  <div class="card" style="width:30em" ;>
-    <h1>Kino Login</h1>
-    <form id="login">
+  <div class="card" id="card" style="width:30em" ;>
+    <h1>Login</h1>
+    <form action="./Bootstrap/success.html" id="login">
       <div class="container-sm">
         <div class="form-floating mb-3 mt-3">
           <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -31,7 +31,7 @@
         <div class="row">
           <div class="col mb-3 mt-3">
             <input type="checkbox" class="form-check-input" id="check1" value="false" />
-            <label class="form-check-label" for="check1">Remember me</label>
+            <label class="form-check-label" for="check1">I accept the <a href="#">Terms</a></label>
           </div>
           <div class="col mb-3 mt-3">
             <a href="#" class="alert-link">Forgot password?</a>
@@ -39,10 +39,10 @@
         </div>
       </div>
       <div class="d-grid">
-        <button type="submit" class="btn btn-primary shadow-sm btn-block">Sign in</button>
+        <button type="submit" id="sCta" class="btn btn-primary shadow-sm btn-block">Sign in</button>
         <div class="d-grid mt-3 mb-3">
-          <button type="signin" class="btn btn-outline-primary shadow-sm">
-            Not a member? Register
+          <button type ="button" class="btn btn-outline-primary shadow-sm" id="regCta">
+            Not a member? Register 
           </button></label>
         </div>
       </div>
@@ -50,6 +50,7 @@
   </form>
   </div>
   </div>
+  <script src="./Bootstrap/form.js"></script>
 </body>
 
 </html>
