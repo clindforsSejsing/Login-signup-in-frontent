@@ -17,21 +17,21 @@
 
 <body>
   <div class="card" id="card" style="width:30em" ;>
-    <h1>Login</h1>
     <form action="./Bootstrap/success.html" id="login">
+      <h1>Login</h1>
       <div class="container-sm">
         <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+          <input type="email" name="email" required class="form-control" id="email" placeholder="Enter email" name="email">
           <label for="email">Email</label>
         </div>
         <div class="form-floating mt-3 mb-3">
-          <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          <input type="password" name="password" required class="form-control" id="pwd" placeholder="Enter password" name="pswd">
           <label for="pwd">Password</label>
         </div>
         <div class="row">
           <div class="col mb-3 mt-3">
-            <input type="checkbox" class="form-check-input" id="check1" value="false" />
-            <label class="form-check-label" for="check1">I accept the <a href="#">Terms</a></label>
+            <input type="checkbox" class="form-check-input" id="check1" value="true" required/>
+            <label class="form-check-label" for="check1">Keep me logged in</label>
           </div>
           <div class="col mb-3 mt-3">
             <a href="#" class="alert-link">Forgot password?</a>
@@ -39,9 +39,9 @@
         </div>
       </div>
       <div class="d-grid">
-        <button type="submit" id="sCta" class="btn btn-primary shadow-sm btn-block">Sign in</button>
+        <button type="submit" id="submitCta" class="btn btn-primary shadow-sm btn-block">Sign in</button>
         <div class="d-grid mt-3 mb-3">
-          <button type ="button" class="btn btn-outline-primary shadow-sm" id="regCta">
+          <button type ="button" class="btn btn-outline-primary shadow-sm" id="registrerCta">
             Not a member? Register 
           </button></label>
         </div>
