@@ -1,5 +1,3 @@
-//declare variables from index.html to be able to render the login to become registrer-form. And the action-buttons.  
-
 let card = document.getElementById("card");
 let regCta = document.getElementById("registrerCta");
 let submitCta = document.getElementById("submitCta");
@@ -27,7 +25,7 @@ function registrerInfo() {
     card.append(regForm);
 
     const styleToInput = document.createElement("div");
-    styleToInput.setAttribute("class", "d-grid");
+    styleToInput.setAttribute("class", "form-group");
     regForm.append(styleToInput);
 
     const pageId = document.createElement("h1");
@@ -42,8 +40,9 @@ function registrerInfo() {
     regName.setAttribute("type", "text");
     regName.setAttribute("required", "");
     regName.setAttribute("placeholder", "Enter First Name");
+    regName.setAttribute("autocomplete", "username");
     regName.setAttribute("class", "form-control col mb-3 mt-3");
-    regName.append(regNameLabel);
+    regName.appendChild(regNameLabel);
     styleToInput.append(regName);
 
     const regNameLastLabel = document.createElement("label");
@@ -54,27 +53,34 @@ function registrerInfo() {
     regLastName.setAttribute("placeholder", "Enter Last Name");
     regNameLastLabel.setAttribute("for", "Last Name");
     regLastName.setAttribute("required", "");
-    regLastName.append(regNameLastLabel);
+    regLastName.appendChild(regNameLastLabel);
     styleToInput.append(regLastName);
 
     const regEmailLabel = document.createElement("label");
     const regEmail = document.createElement("input");
     regEmail.setAttribute("type", "email");
+    regEmail.setAttribute("placeholder", "my_email@example.test");
+    regEmail.setAttribute("autocomplete", "username");
     regEmail.setAttribute("class", "form-control col mb-3 mt-3");
-    regEmail.setAttribute("placeholder", "Enter Email");
     regEmail.setAttribute("required", "");
     regEmailLabel.setAttribute("for", "Email");
-    regEmail.append(regEmailLabel);
+    regEmail.appendChild(regEmailLabel);
     styleToInput.append(regEmail);
 
     const passLabel = document.createElement("label");
+    passLabel.setAttribute("for", "Password");
+    const infoText = document.createElement("p");
+    infoText.setAttribute("class", "small");
+    infoText.innerHTML = "Password must contain: 8 to 15 characters which contain only characters, numeric digits, underscore and first character must be a letter";
     const passW = document.createElement("input");
     passW.setAttribute("type", "password");
-    passW.setAttribute("class", "form-control col mb-3 mt-3");
+    passW.setAttribute("autocomplete", "new-password");
+    passW.setAttribute("class", "form-control col mb-6 mt-6");
     passW.setAttribute("placeholder", " Enter Password");
+    passW.setAttribute("value", "");
     passW.setAttribute("id", "passW");
-    passLabel.setAttribute("for", "Password");
     passW.setAttribute("required", "");
+    styleToInput.append(infoText);
     styleToInput.append(passW);
 
     const passConfLabel = document.createElement("label");
@@ -83,40 +89,88 @@ function registrerInfo() {
     passWConfirm.setAttribute("class", "form-control col mb-3 mt-3");
     passWConfirm.setAttribute("id", "passWConfirm");
     passWConfirm.setAttribute("placeholder", "Repeat Password");
+    passWConfirm.setAttribute("autocomplete", "new-password");
     passWConfirm.setAttribute("required", "");
     passConfLabel.setAttribute("for", "Password");
+    passWConfirm.appendChild(passConfLabel);
     styleToInput.append(passWConfirm);
 
 
     const CtaLogin = document.createElement("button");
     CtaLogin.setAttribute("type", "submit");
-    CtaLogin.setAttribute("class", "btn btn-primary shadow-sm btn-block");
+    CtaLogin.setAttribute("class", "btn btn-primary shadow-sm");
     CtaLogin.setAttribute("id", "CtaLogin");
     CtaLogin.innerHTML = "Save & login";
     styleToInput.append(CtaLogin);
 
-    //control to se if passwords matches
-    CtaLogin.addEventListener("click", function (event) {
-        if (!passwordsMatch()) {
-            event.preventDefault();
-            return false;
-        }
-    }, false);
+    let errorMessage = document.createElement("p");
+    errorMessage.setAttribute("id", "errorM");
+    errorMessage.innerHTML = "☒ Use same password";
+    errorMessage.style.visibility = "hidden";
+    styleToInput.append(errorMessage);
 
-    function passwordsMatch() {
+    let secondErrorMessage = document.createElement("p");
+    secondErrorMessage.setAttribute("id", "secErrorMessage");
+    secondErrorMessage.innerHTML = "☒ Not safe enough. Try again";
+    secondErrorMessage.style.visibility = "hidden";
+    styleToInput.append(secondErrorMessage);
+
+    //control to see if passwords matches and is safe enough
+    CtaLogin.addEventListener("click", function (event) {
+        if (validateForm()) {
+            if (!controllPassword()) {
+                event.preventDefault();
+
+            }
+            if (!validate_password()) {
+                event.preventDefault();
+
+            }
+        }
+    });
+
+    function validateForm() {
+        let validateFirstName = regName.reportValidity();
+        let validateLastName = regLastName.reportValidity();
+        let validateEmail = regEmail.reportValidity();
+        if (validateFirstName && validateLastName && validateEmail) {
+            return true;
+        }
+    } return false;
+
+
+
+    function validate_password() {
         let passValue = document.getElementById("passW").value;
         let passConValue = document.getElementById("passWConfirm").value;
+        let wrongPass = document.querySelector("#errorM");
 
         if (passValue != passConValue) {
-            let wrongPass = document.createElement("p");
-            wrongPass.setAttribute("style", "red");
-            wrongPass.innerText = "Passwords dont match! Try again."
-            styleToInput.append(wrongPass);
+            wrongPass.style.visibility = "visible";
             return false;
+        } else {
+            wrongPass.style.visibility = "hidden";
+            return true;
         }
-        return true;
     }
+
+    function controllPassword() {
+        let passValue = document.getElementById("passW").value;
+
+
+        let wrongPass = document.querySelector("#secErrorMessage");
+        let passWord = /^[A-Za-z]\w{8,15}$/;
+        if (!passValue.match(passWord)) {
+            wrongPass.style.visibility = "visible";
+            return false;
+        } else {
+            wrongPass.style.visibility = "hidden";
+            return true;
+        }
+
+
+    }
+
+
 }
-
-
 
